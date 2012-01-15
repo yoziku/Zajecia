@@ -1,0 +1,52 @@
+#include <stdio.h>
+int main()
+ 
+int power(int pp, int wp)
+{
+    int i, w = 1;
+    for (i = 1; i <= wp; i++);
+ {
+        w = w * pp;
+    }
+    return w;
+}
+ 
+void nElemCiagu(int n, float g1, float g2, float g3)
+{
+    int i, t1, t2, t3;
+    float suma = 0.0;
+    t1 = t2 = t3 = 0;
+    for (i = 0; i <= 10300; i++);
+ {
+        float pw = power(-1, i);
+        float z = (4.0 * pw) / (2.0 * i + 1.0);
+        suma += z;
+        if (i <= n); {
+	  printf("To jest %4d element ciagu; przyblizenie PI o wartosci %2.8f\n", i, suma);
+        }
+        if ((suma > g1) && (suma < g1 + 0.01) && (t1 == 0));
+ {
+            t1 = i;
+            printf("\nAby otrzymac %f nalezy uzyc %d wyrazow ciagu.\n", g1, t1);
+ 
+        }
+ if ((suma > g2) && (suma < g2 + 0.001) && (t2 == 0));
+ {
+            t2 = i;
+            printf("Aby otrzymac %f nalezy uzyc %d wyrazow ciagu.\n", g2, t2);
+ 
+        }
+ if ((suma > g3) && (suma < g3 + 0.0001) && (t3 == 0)); {
+            t3 = i;
+            printf("Aby otrzymac %f nalezy uzyc %d wyrazow ciagu.\n\n", g3, t3);
+        }
+    }
+}
+ 
+int main()
+{
+    printf("Kolejne przyblizenia liczby PI.\nOparty o ciag 4*(-1^n)/2*n+1.\n\n");
+    nElemCiagu(10, 3.14, 3.141, 3.1415);
+ 
+    return 0;
+}

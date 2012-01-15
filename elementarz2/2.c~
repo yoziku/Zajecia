@@ -1,0 +1,38 @@
+include <stdio.h>
+#include <math.h>
+ 
+int wczytajLiczbe()
+{
+    int l;
+    printf("Podaj liczbe: ");
+    scanf("%d", &l);
+    return l;
+}
+ 
+int main()
+{
+    int i, lt, lw;
+    lw = wczytajLiczbe();
+    lt = sqrt(lw);
+ 
+    // printf("lt: %d\n", lt);
+    if (lt >= 2) {
+        for (i = 2; i <= lt; i++) {
+            if (!(lw % i)) {
+                printf("Liczba %d nie jest liczba pierwsza.\n", lw);
+                break;
+            } else {
+                if (i >= lt) {
+                    printf("Liczba %d jest liczba pierwsza.\n", lw);
+                }
+            }
+        }
+    } else if (lw < 0) {
+        printf("Blad!! Wprowadziles liczbe ujemna.\n");
+    } else if ((lw == 0) || (lw == 1)) {
+        printf("Liczba %d nie jest liczba pierwsza.\n", lw);
+    } else {
+        printf("Liczba %d jest liczba pierwsza.\n", lw);
+    }
+    return 0;
+}
